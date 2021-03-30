@@ -11,3 +11,8 @@ target_link_libraries(v4l2sinktest v4l2sink ${OpenCV_LIBRARIES})
 
 add_executable(simpleopen simpleopen.cpp)
 target_link_libraries(simpleopen  ${OpenCV_LIBRARIES})
+
+add_executable(v4l2sinkcapture v4l2sinkcapture.cpp)
+target_link_libraries(v4l2sinkcapture v4l2sink ${OpenCV_LIBRARIES})
+
+
