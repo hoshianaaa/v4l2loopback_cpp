@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/v4l2loopback_cpp/v4l2sink.hpp
+memory
+-
+
+/home/pi/v4l2loopback_cpp/v4l2sinkcapture.cpp
+v4l2sink.hpp
+/home/pi/v4l2loopback_cpp/v4l2sink.hpp
+opencv2/opencv.hpp
+/home/pi/v4l2loopback_cpp/opencv2/opencv.hpp
+stdio.h
+-
+stdint.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+sys/errno.h
+-
+sys/fcntl.h
+-
+sys/ioctl.h
+-
+sys/mman.h
+-
+linux/videodev2.h
+-
+

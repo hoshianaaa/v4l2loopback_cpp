@@ -1,0 +1,2 @@
+/usr/bin/ar qc libv4l2sink.a  CMakeFiles/v4l2sink.dir/v4l2sink.o
+/usr/bin/ranlib libv4l2sink.a

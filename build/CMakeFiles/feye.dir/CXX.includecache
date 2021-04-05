@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/v4l2loopback_cpp/feye.cpp
+opencv2/opencv.hpp
+/home/pi/v4l2loopback_cpp/opencv2/opencv.hpp
+stdio.h
+-
+

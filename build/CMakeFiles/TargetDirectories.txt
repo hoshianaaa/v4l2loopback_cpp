@@ -1,0 +1,5 @@
+/home/pi/v4l2loopback_cpp/build/CMakeFiles/rebuild_cache.dir
+/home/pi/v4l2loopback_cpp/build/CMakeFiles/edit_cache.dir
+/home/pi/v4l2loopback_cpp/build/CMakeFiles/v4l2sinkcapture.dir
+/home/pi/v4l2loopback_cpp/build/CMakeFiles/v4l2sink.dir
+/home/pi/v4l2loopback_cpp/build/CMakeFiles/feye.dir
