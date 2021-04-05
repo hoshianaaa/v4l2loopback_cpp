@@ -13,13 +13,15 @@
 #include <sys/mman.h>
 #include <linux/videodev2.h>
 
+//#include <omp.h>
+
 void startCapture();
 void copyBuffer(uint8_t *dstBuffer, uint32_t *size);
 void stopCapture();
 int saveFileBinary(const char* filename, uint8_t* data, int size);
 
 int fd;
-const int v4l2BufferNum = 2;
+const int v4l2BufferNum = 1;
 void *v4l2Buffer[v4l2BufferNum];
 uint32_t v4l2BufferSize[v4l2BufferNum];
 
@@ -175,21 +177,27 @@ int main(int argc, char**argv)
 	//int r = sink.init(img.cols,img.rows,img.channels() == 1 ? v4l2sink::GRAY: v4l2sink::RGB);
 	int r = sink.init(img.cols,img.rows, v4l2sink::YUYV);
 	printf("input %d %d %d\n",img.cols,img.rows,img.channels());
+
+	//std::cout << "omp:" << omp_get_max_threads() << std::endl;
+
 	while(true)
 	{
 		cap >> img;
 		cv::cvtColor(img, yuv, cv::COLOR_RGB2YUV);
 
 		for (int i=0;i<height;i++){
+
+			cv::Vec3b *ptr = yuv.ptr<cv::Vec3b>(i);
+
 			for (int j=0;j<width*2;j++){
 				if (j % 2 == 0){
-					buffer[i][j] = yuv.at<cv::Vec3b>(i,j/2)[0];
+					buffer[i][j] = ptr[j/2][0];
 				}
 				else{
 					if (j % 4 == 3)
-						buffer[i][j] = yuv.at<cv::Vec3b>(i,j/2)[1];
+						buffer[i][j] = ptr[j/2][1];
 					if (j % 4 == 1)
-						buffer[i][j] = yuv.at<cv::Vec3b>(i,j/2)[2];
+						buffer[i][j] = ptr[j/2][2];
 				}
 			}
 
